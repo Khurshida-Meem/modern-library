@@ -3,11 +3,28 @@ const inputField = document.getElementById('input-field');
 const resultCount = document.getElementById('result-count');
 const cardContainer = document.getElementById('card-container');
 const errorField = document.getElementById('error-field');
+
+// spinner display function
 const showSpinner = displayStyle => {
     document.getElementById('spinner').style.display = displayStyle;
 }
+
+// clear all fields
+const clearFields = () => {
+    resultCount.innerText = ''
+    cardContainer.textContent = '';
+    errorField.textContent = '';
+}
+// data load
 const loadData = async () => {
+    clearFields();
     const textInput = inputField.value;
+    // null input
+    if (textInput === '') {
+        errorField.innerText = "Book name can't be empty, please put a valid book name" ;
+        return;
+    }
+
     showSpinner('block')
     const url = `https://openlibrary.org/search.json?q=${textInput}`;
     const res = await fetch(url);
@@ -19,16 +36,19 @@ const loadData = async () => {
 
 
 const showData = books => {
-    cardContainer.textContent = '';
     const searchReasultAmount = books.length;
+    // for not find any reult
     if (searchReasultAmount === 0) {
+        showSpinner('none');
         errorField.innerText = "No result found, please try another book"
     }
     else {
         errorField.innerText = ""
     }
-    resultCount.innerText = `${searchReasultAmount} results found...`
+    // how many earch result we got
+    resultCount.innerText = `${searchReasultAmount} results found...`;
 
+    // show results
     books?.forEach(book => {
         const imgSource = `https://covers.openlibrary.org/b/id/${book.cover_i != undefined ? book.cover_i : 10909258}-M.jpg`;
 

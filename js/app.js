@@ -17,7 +17,7 @@ const clearFields = () => {
 }
 // data load
 const loadData = async () => {
-    clearFields();
+    clearFields(); //clear all reasult right after search
     const textInput = inputField.value;
     // null input
     if (textInput === '') {

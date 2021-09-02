@@ -29,13 +29,13 @@ const loadData = async () => {
     const url = `https://openlibrary.org/search.json?q=${textInput}`;
     const res = await fetch(url);
     const data = await res.json();
-    showData(data.docs);
+    showData(data.docs, data.numFound);
     inputField.value = '';
 
 }
 
 
-const showData = books => {
+const showData = (books,resultQuantity) => {
     const searchReasultAmount = books.length;
     // for not find any reult
     if (searchReasultAmount === 0) {
@@ -46,7 +46,7 @@ const showData = books => {
         errorField.innerText = ""
     }
     // how many earch result we got
-    resultCount.innerText = `${searchReasultAmount} results found...`;
+    resultCount.innerText = `Showing ${searchReasultAmount} results out of ${resultQuantity}`;
 
     // show results
     books?.forEach(book => {

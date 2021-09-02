@@ -46,7 +46,7 @@ const showData = (books,resultQuantity) => {
         errorField.innerText = ""
     }
     // how many earch result we got
-    resultCount.innerText = `Showing ${searchReasultAmount} results out of ${resultQuantity}`;
+    resultCount.innerText = `Found ${resultQuantity} results and Showing ${searchReasultAmount} results`;
 
     // show results
     books?.forEach(book => {
@@ -62,6 +62,7 @@ const showData = (books,resultQuantity) => {
                 <p class="card-text text-danger">${book.author_name != undefined ? '<span class="fw-bold">Author: </span>' + book.author_name : ''}</p>
                 <p class="card-text text-secondary">${book.publisher != undefined ? '<span class="fw-bold">publisher: </span>' + book.publisher[0].split(/,/)[0] : ''}</p>
                 <p class="card-text text-secondary">${book.first_publish_year != undefined ? '<span class="fw-bold">First Published Year : </span>' + book.first_publish_year : ''}</p>
+                <p class="card-text text-secondary">${book.language[0] != undefined ? '<span class="fw-bold">Language : </span>' + book.language[0] : ''}</p>
             </div>
             
         </div>

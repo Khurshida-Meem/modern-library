@@ -21,7 +21,7 @@ const loadData = async () => {
     const textInput = inputField.value;
     // null input
     if (textInput === '') {
-        errorField.innerText = "Book name can't be empty, please put a valid book name" ;
+        errorField.innerText = "Book name can't be empty, please put a valid book name";
         return;
     }
 
@@ -59,9 +59,9 @@ const showData = books => {
             <img src="${imgSource}" class="card-img-top p-3" alt="...">
             <div class="card-body">
                 <h5 class="card-title fw-bold text-success">${book.title}</h5>
-                <p class="card-text text-danger">${book.author_name != undefined ? 'Author: ' + book.author_name : ''}</p>
-                <p class="card-text text-secondary">${book.publisher != undefined ? 'publisher: ' + book.publisher : ''}</p>
-                <p class="card-text text-secondary">${book.first_publish_year != undefined ? 'First Published Year : ' + book.first_publish_year : ''}</p>
+                <p class="card-text text-danger">${book.author_name != undefined ? '<span class="fw-bold">Author: </span>' + book.author_name : ''}</p>
+                <p class="card-text text-secondary">${book.publisher != undefined ? '<span class="fw-bold">publisher: </span>' + book.publisher : ''}</p>
+                <p class="card-text text-secondary">${book.first_publish_year != undefined ? '<span class="fw-bold">First Published Year : </span>' + book.first_publish_year : ''}</p>
             </div>
             
         </div>

@@ -60,7 +60,7 @@ const showData = books => {
             <div class="card-body">
                 <h5 class="card-title fw-bold text-success">${book.title}</h5>
                 <p class="card-text text-danger">${book.author_name != undefined ? '<span class="fw-bold">Author: </span>' + book.author_name : ''}</p>
-                <p class="card-text text-secondary">${book.publisher != undefined ? '<span class="fw-bold">publisher: </span>' + book.publisher : ''}</p>
+                <p class="card-text text-secondary">${book.publisher != undefined ? '<span class="fw-bold">publisher: </span>' + book.publisher[0].split(/,/)[0] : ''}</p>
                 <p class="card-text text-secondary">${book.first_publish_year != undefined ? '<span class="fw-bold">First Published Year : </span>' + book.first_publish_year : ''}</p>
             </div>
             
